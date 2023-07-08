@@ -1,15 +1,19 @@
 /** @format */
-import { SECRET_TOKEN } from "./secure.js";
+import dotenv from "dotenv";
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 export const getOptions = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: SECRET_TOKEN,
+    Authorization: process.env.SECRET_TOKEN,
   },
 };
 
 export const corsConfig = {
-  method: "http://127.0.0.1:5500/",
+  method: process.env.CROSS_CONFIG_ACCEPTED_ORIGIN,
   optionsSuccessStatus: 200,
 };

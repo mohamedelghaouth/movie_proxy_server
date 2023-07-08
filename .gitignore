@@ -1,3 +1,4 @@
 node_modules/
-secure.js
 .idea/
+secure.js
+.env
